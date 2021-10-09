@@ -5,9 +5,9 @@ pipeline{
     }
     stages{
         stage("SCM"){
-            steps{
-               sh 'mvn install'
-            }
+			withMaven {
+			  sh "mvn install"
+			} // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
         }
     }
 }
