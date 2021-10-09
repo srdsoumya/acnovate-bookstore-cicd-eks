@@ -7,5 +7,10 @@ pipeline {
 				sh 'mvn install'
             }
         }
+        stage ('Docker Build') {
+            steps {
+				sh 'docker version' 
+            }
+        }
     }
 }
