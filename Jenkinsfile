@@ -6,7 +6,8 @@ pipeline{
     stages{
         stage("SCM"){
             steps{
-               sh 'mvn install'
+				def mavenHome = tool name: 'mvn', type: 'maven'
+				sh "${mavenHome}/bin/mvn install" 
             }
         }
     }
