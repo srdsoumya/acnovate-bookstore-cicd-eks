@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage("SCM"){
             steps{
-               echo "job ran.....again"
+               sh 'mvn install'
             }
         }
     }
