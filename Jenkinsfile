@@ -6,9 +6,7 @@ pipeline{
     stages{
         stage("SCM"){
             steps{
-				withMaven {
-				  sh 'mvn install'
-				} 
+               sh 'mvn install'
             }
         }
     }
