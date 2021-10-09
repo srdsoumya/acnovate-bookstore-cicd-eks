@@ -4,8 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
 				sh 'mvn clean' 
-				sh 'mvn compile'
-                sh 'mvn install' 
+				sh 'mvn install -Dmaven.compiler.fork=true -Dmaven.compiler.executable=/usr/lib/jvm/java-openjdk/bin/javac'
             }
         }
     }
