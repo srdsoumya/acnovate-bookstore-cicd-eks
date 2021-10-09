@@ -4,7 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
 				sh 'mvn clean' 
-				sh 'mvn compiler:compile'
+				sh 'mvn compile'
                 sh 'mvn install' 
             }
         }
