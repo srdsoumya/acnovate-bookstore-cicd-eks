@@ -1,13 +1,22 @@
-node{
+pipeline {
     agent any
-    triggers {
-      pollSCM '* * * * *'
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
     }
-    stages{
-        stage("SCM"){
-            steps{
-				def mavenHome = tool name: 'mvn', type: 'maven'
-				sh "${mavenHome}/bin/mvn install" 
+    stages {
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                sh 'mvn install' 
             }
         }
     }
