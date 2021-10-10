@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-				cleanWs()
 				sh 'mvn clean' 
 				sh 'mvn install'
             }
@@ -11,6 +10,11 @@ pipeline {
         stage ('Docker Build') {
             steps {
 				sh 'docker version' 
+            }
+        }
+		stage ('CleanUp') {
+            steps {
+				cleanWs() 
             }
         }
     }
